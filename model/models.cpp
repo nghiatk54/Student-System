@@ -1,14 +1,12 @@
 #include <iostream>
 using namespace std;
 
-// Create class BaseEntity
-class BaseEntity
+// Create class ShareData
+class ShareData
 {
 private:
     int id;
     string name;
-    int age;
-    string phoneNumber;
 
 public:
     // Setter information
@@ -24,6 +22,29 @@ public:
         this->name = name;
     }
 
+    // Getter information
+    // Function get ID
+    int getId()
+    {
+        return id;
+    }
+
+    // Function get name
+    string getName()
+    {
+        return name;
+    }
+};
+
+// Create class BaseEntity
+class BaseEntity : public ShareData
+{
+private:
+    int age;
+    string phoneNumber;
+
+public:
+    // Setter information
     // Function setter Age
     void setAge(int age)
     {
@@ -37,18 +58,6 @@ public:
     }
 
     // Getter information
-    // Function get ID
-    int getId()
-    {
-        return id;
-    }
-
-    // Function get name
-    string getName()
-    {
-        return name;
-    }
-
     // Function get Age
     int getAge()
     {
@@ -67,7 +76,7 @@ class Teacher : public BaseEntity
 {
 private:
     double salary;
-    int studentIds[5];
+    int studentIds[500];
 
 public:
     // Setter information
@@ -80,7 +89,7 @@ public:
     // Function setter StudentIds
     void setStudentIds(int studentIds[5])
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0, length = sizeof(studentIds) / sizeof(studentIds[0]); i < length; i++)
         {
             this->studentIds[i] = studentIds[i];
         }
@@ -118,7 +127,7 @@ public:
     // Function setter Teachers
     void setTeachers(Teacher teachers[5])
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0, length = sizeof(teachers) / sizeof(teachers[0]); i < length; i++)
         {
             this->teachers[i] = teachers[i];
         }
@@ -135,5 +144,27 @@ public:
     Teacher *getTeachers()
     {
         return teachers;
+    }
+};
+
+// Create class Course
+class Course : public ShareData
+{
+private:
+    double hour;
+
+public:
+    // Setter information
+    // Function set Hour
+    void setHour(double hour)
+    {
+        this->hour = hour;
+    }
+
+    // Getter information
+    // Function get Hour
+    double getHour()
+    {
+        return hour;
     }
 };
