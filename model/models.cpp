@@ -67,6 +67,7 @@ class Teacher : public BaseEntity
 {
 private:
     double salary;
+    int studentIds[5];
 
 public:
     // Setter information
@@ -76,11 +77,26 @@ public:
         this->salary = salary;
     }
 
+    // Function setter StudentIds
+    void setStudentIds(int studentIds[5])
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            this->studentIds[i] = studentIds[i];
+        }
+    }
+
     // Getter information
     // Function get Salary
     double getSalary()
     {
         return salary;
+    }
+
+    // Function get studentIds
+    int *getStudentIds()
+    {
+        return studentIds;
     }
 };
 
@@ -89,7 +105,6 @@ class Student : public BaseEntity
 {
 private:
     double gpa;
-    string n;
     Teacher teachers[5]; // Declare array item class Teacher
 
 public:
