@@ -76,7 +76,7 @@ class Teacher : public BaseEntity
 {
 private:
     double salary;
-    int studentIds[500];
+    int studentIds[5]; // Declare array item ID in students
 
 public:
     // Setter information
@@ -109,12 +109,51 @@ public:
     }
 };
 
+// Create class Course
+class Course : public ShareData
+{
+private:
+    double hour;
+    int studentIds[5]; // Declare array item ID in students
+
+public:
+    // Setter information
+    // Function set Hour
+    void setHour(double hour)
+    {
+        this->hour = hour;
+    }
+
+    // Function setter StudentIds
+    void setStudentIds(int studentIds[5])
+    {
+        for (int i = 0, length = sizeof(studentIds) / sizeof(studentIds[0]); i < length; i++)
+        {
+            this->studentIds[i] = studentIds[i];
+        }
+    }
+
+    // Getter information
+    // Function get Hour
+    double getHour()
+    {
+        return hour;
+    }
+
+    // Function get studentIds
+    int *getStudentIds()
+    {
+        return studentIds;
+    }
+};
+
 // Create class Student
 class Student : public BaseEntity
 {
 private:
     double gpa;
     Teacher teachers[5]; // Declare array item class Teacher
+    Course courses[5];   // Declare array item class Course
 
 public:
     // Setter information
@@ -133,6 +172,15 @@ public:
         }
     }
 
+    // Function setter Courses
+    void setCourses(Course courses[5])
+    {
+        for (int i = 0, length = sizeof(courses) / sizeof(courses[0]); i < length; i++)
+        {
+            this->courses[i] = courses[i];
+        }
+    }
+
     // Getter information
     // Function get GPA
     double getGpa()
@@ -145,26 +193,10 @@ public:
     {
         return teachers;
     }
-};
 
-// Create class Course
-class Course : public ShareData
-{
-private:
-    double hour;
-
-public:
-    // Setter information
-    // Function set Hour
-    void setHour(double hour)
+    // Function get Courses
+    Course *getCourses()
     {
-        this->hour = hour;
-    }
-
-    // Getter information
-    // Function get Hour
-    double getHour()
-    {
-        return hour;
+        return courses;
     }
 };
