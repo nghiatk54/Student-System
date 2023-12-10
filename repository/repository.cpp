@@ -7,7 +7,7 @@ using namespace std;
 class StudentRepository
 {
 public:
-    virtual int addStudent(Student student);
+    virtual int addStudent(Student student) = 0;
 };
 
 // Create class StudentRepositoryImpl
@@ -36,20 +36,58 @@ public:
 // Create class interface CourseRepository
 class CourseRepository
 {
+public:
+    virtual int addCourse(Course course) = 0;
 };
 
 // Create class CourseRepositoryImpl
 class CourseRepositoryImpl : public CourseRepository
 {
+private:
+    Course courses[25];
+    int index = 0;
+
+public:
+    int addCourse(Course course)
+    {
+        if (index == 25)
+        {
+            cout << "Full Course" << '\n';
+        }
+        else
+        {
+            courses[index] = course;
+            index++;
+        }
+    }
 };
 
 //////////////////////////////////// TEACHER \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 // Create class interface TeacherRepository
 class TeacherRepository
 {
+public:
+    virtual int addTeacher(Teacher teacher) = 0;
 };
 
 // Create class TeacherRepositoryImpl
 class TeacherRepositoryImpl : public TeacherRepository
 {
+private:
+    Teacher teachers[25];
+    int index = 0;
+
+public:
+    int addTeacher(Teacher teacher)
+    {
+        if (index == 25)
+        {
+            cout << "Full Teacher" << '\n';
+        }
+        else
+        {
+            teachers[index] = teacher;
+            index++;
+        }
+    }
 };
