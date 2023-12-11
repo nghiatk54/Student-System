@@ -1,5 +1,6 @@
 #include "../service/service.cpp"
 
+//////////////////////////////////// STUDENT \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 // Create class StudentController
 class StudentController
 {
@@ -13,6 +14,7 @@ public:
     }
 };
 
+//////////////////////////////////// COURSE \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 // Create class CourseController
 class CourseController
 {
@@ -26,6 +28,7 @@ public:
     }
 };
 
+//////////////////////////////////// TEACHER \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 // Create class TeacherController
 class TeacherController
 {
