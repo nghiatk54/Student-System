@@ -5,7 +5,7 @@
 class StudentController
 {
 private:
-    StudentService studentService;
+    StudentServiceImpl studentService;
 
 public:
     int addStudent(Student student)
@@ -19,7 +19,7 @@ public:
 class CourseController
 {
 private:
-    CourseService courseService;
+    CourseServiceImpl courseService;
 
 public:
     int addCourse(Course course)
@@ -33,7 +33,7 @@ public:
 class TeacherController
 {
 private:
-    TeacherService teacherService;
+    TeacherServiceImpl teacherService;
 
 public:
     int addTeacher(Teacher teacher)

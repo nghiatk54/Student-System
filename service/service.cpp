@@ -12,7 +12,7 @@ public:
 class StudentServiceImpl
 {
 private:
-    StudentRepository studentRepository;
+    StudentRepositoryImpl studentRepository;
 
 public:
     int addStudent(Student student)
@@ -33,7 +33,7 @@ public:
 class CourseServiceImpl
 {
 private:
-    CourseRepository courseRepository;
+    CourseRepositoryImpl courseRepository;
 
 public:
     int addCourse(Course course)
@@ -54,7 +54,7 @@ public:
 class TeacherServiceImpl
 {
 private:
-    TeacherRepository teacherRepository;
+    TeacherRepositoryImpl teacherRepository;
 
 public:
     int addTeacher(Teacher teacher)
