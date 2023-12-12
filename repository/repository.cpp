@@ -2,6 +2,32 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Create class Data contains data normal static
+class Data
+{
+public:
+    static Student students[25];
+    static int indexStudent;
+    static int idStudent;
+    static Course courses[25];
+    static int indexCourse;
+    static int idCourse;
+    static Teacher teachers[25];
+    static int indexTeacher;
+    static int idTeacher;
+};
+
+// Set initial data information
+Student Data::students[25];
+int Data::indexStudent = 0;
+int Data::idStudent = 1;
+Course Data::courses[25];
+int Data::indexCourse = 0;
+int Data::idCourse = 1;
+Teacher Data::teachers[25];
+int Data::indexTeacher = 0;
+int Data::idTeacher = 1;
+
 //////////////////////////////////// STUDENT \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 // Create class interface StudentRepository
 class StudentRepository
@@ -14,21 +40,21 @@ public:
 class StudentRepositoryImpl : public StudentRepository
 {
 private:
-    Student students[25];
-    int index = 0;
+    Data data;
 
 public:
     int addStudent(Student student)
     {
-        if (index == 25)
+        if (data.indexStudent == 25)
         {
             cout << "Full Student" << '\n';
         }
         else
         {
-            students[index] = student;
-            index++;
+            student.setId(data.idStudent++);
+            data.students[data.indexStudent++] = student;
         }
+        return student.getId();
     }
 };
 
@@ -44,20 +70,19 @@ public:
 class CourseRepositoryImpl : public CourseRepository
 {
 private:
-    Course courses[25];
-    int index = 0;
+    Data data;
 
 public:
     int addCourse(Course course)
     {
-        if (index == 25)
+        if (data.indexCourse == 25)
         {
             cout << "Full Course" << '\n';
         }
         else
         {
-            courses[index] = course;
-            index++;
+            data.courses[data.indexCourse] = course;
+            data.indexCourse++;
         }
     }
 };
@@ -74,20 +99,19 @@ public:
 class TeacherRepositoryImpl : public TeacherRepository
 {
 private:
-    Teacher teachers[25];
-    int index = 0;
+    Data data;
 
 public:
     int addTeacher(Teacher teacher)
     {
-        if (index == 25)
+        if (data.indexTeacher == 25)
         {
             cout << "Full Teacher" << '\n';
         }
         else
         {
-            teachers[index] = teacher;
-            index++;
+            data.teachers[data.indexTeacher] = teacher;
+            data.indexTeacher++;
         }
     }
 };
