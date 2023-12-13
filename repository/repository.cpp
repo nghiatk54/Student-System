@@ -81,9 +81,10 @@ public:
         }
         else
         {
-            data.courses[data.indexCourse] = course;
-            data.indexCourse++;
+            course.setId(data.idCourse++);
+            data.courses[data.indexCourse++] = course;
         }
+        return course.getId();
     }
 };
 
@@ -110,8 +111,9 @@ public:
         }
         else
         {
-            data.teachers[data.indexTeacher] = teacher;
-            data.indexTeacher++;
+            teacher.setId(data.idTeacher++);
+            data.teachers[data.indexTeacher++] = teacher;
         }
+        return teacher.getId();
     }
 };
