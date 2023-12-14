@@ -183,7 +183,10 @@ void addCourse()
     course.setHour(hour);
     CourseController courseController;
     int id = courseController.addCourse(course);
-    cout << "Success Added With Course Id [" << id << "]" << endl;
+    if (id != -1)
+    {
+        cout << "Success Added With Course Id [" << id << "]" << endl;
+    }
 }
 
 // Function Add Teacher
@@ -209,5 +212,8 @@ void addTeacher()
     teacher.setSalary(salary);
     TeacherController teacherController;
     int id = teacherController.addTeacher(teacher);
-    cout << "Success Added Teacher With Id [" << id << "]" << endl;
+    if (id != -1)
+    {
+        cout << "Success Added Teacher With Id [" << id << "]" << endl;
+    }
 }
