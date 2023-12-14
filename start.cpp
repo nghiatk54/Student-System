@@ -162,7 +162,10 @@ void addStudent()
     student.setGpa(gpa);
     StudentController studentController;
     int id = studentController.addStudent(student);
-    cout << "Success Added Student With Id [" << id << "]" << endl;
+    if (id != -1)
+    {
+        cout << "Success Added Student With Id [" << id << "]" << endl;
+    }
 }
 
 // Function Add Course
