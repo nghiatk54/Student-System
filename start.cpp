@@ -2,6 +2,10 @@
 #include "./controller/controller.cpp"
 using namespace std;
 
+// Declare process user
+int process;
+// Declare id of object student, course, teacher
+int id;
 // Declare function display system
 void displaySystem();
 
@@ -17,7 +21,15 @@ void addCourse();
 // Declare function Add Teacher
 void addTeacher();
 
-int process;
+// Declare Function Switch Student
+void switchStudent();
+
+// Declare Function Switch Course
+void switchCourse();
+
+// Declare Function Switch Teacher
+void switchTeacher();
+
 int main()
 {
     int flag = 0;
@@ -32,73 +44,19 @@ int main()
             showList("Student"); // Show list Student
             cin >> process;
             // Check process Student user
-            switch (process)
-            {
-            case 1:
-                addStudent();
-                break;
-            case 2:
-                cout << "Remove Student" << endl;
-                break;
-            case 3:
-                cout << "Edit Student" << endl;
-                break;
-            case 4:
-                cout << "Show Student" << endl;
-                break;
-            case 5:
-                break;
-            default:
-                cout << "Invalid Choose" << endl;
-            }
+            switchStudent();
             break;
         case 2:
             showList("Course"); // Show list Course
             cin >> process;
             // Check process Course user
-            switch (process)
-            {
-            case 1:
-                addCourse();
-                break;
-            case 2:
-                cout << "Remove Course" << endl;
-                break;
-            case 3:
-                cout << "Edit Course" << endl;
-                break;
-            case 4:
-                cout << "Show Course" << endl;
-                break;
-            case 5:
-                break;
-            default:
-                cout << "Invalid Choose" << endl;
-            }
+            switchCourse();
             break;
         case 3:
             showList("Teacher"); // Show list Teacher
             cin >> process;
             // Check process Teacher user
-            switch (process)
-            {
-            case 1:
-                addTeacher();
-                break;
-            case 2:
-                cout << "Remove Teacher" << endl;
-                break;
-            case 3:
-                cout << "Edit Teacher" << endl;
-                break;
-            case 4:
-                cout << "Show Teacher" << endl;
-                break;
-            case 5:
-                break;
-            default:
-                cout << "Invalid Choose" << endl;
-            }
+            switchTeacher();
             break;
         case 4:
             flag = 1;
@@ -113,7 +71,7 @@ int main()
     }
 }
 
-// Declare function display system
+// Function display system
 void displaySystem()
 {
     cout << "\t\t\t*********** Management System ***********" << endl;
@@ -161,7 +119,7 @@ void addStudent()
     cin >> gpa;
     student.setGpa(gpa);
     StudentController studentController;
-    int id = studentController.addStudent(student);
+    id = studentController.addStudent(student);
     if (id != -1)
     {
         cout << "Success Added Student With Id [" << id << "]" << endl;
@@ -182,7 +140,7 @@ void addCourse()
     cin >> hour;
     course.setHour(hour);
     CourseController courseController;
-    int id = courseController.addCourse(course);
+    id = courseController.addCourse(course);
     if (id != -1)
     {
         cout << "Success Added With Course Id [" << id << "]" << endl;
@@ -211,9 +169,84 @@ void addTeacher()
     cin >> salary;
     teacher.setSalary(salary);
     TeacherController teacherController;
-    int id = teacherController.addTeacher(teacher);
+    id = teacherController.addTeacher(teacher);
     if (id != -1)
     {
         cout << "Success Added Teacher With Id [" << id << "]" << endl;
+    }
+}
+
+// Function Switch Student
+void switchStudent()
+{
+    // Check process Student user
+    switch (process)
+    {
+    case 1:
+        addStudent();
+        break;
+    case 2:
+        cout << "Remove Student" << endl;
+        break;
+    case 3:
+        cout << "Edit Student" << endl;
+        break;
+    case 4:
+        cout << "Show Student" << endl;
+        break;
+    case 5:
+        break;
+    default:
+        cout << "Invalid Choose" << endl;
+    }
+}
+
+// Function Switch Course
+void switchCourse()
+{
+    // Check process Course user
+    switch (process)
+    {
+    case 1:
+        addCourse();
+        break;
+    case 2:
+        cout << "Remove Course" << endl;
+        break;
+    case 3:
+        cout << "Edit Course" << endl;
+        break;
+    case 4:
+        cout << "Show Course" << endl;
+        break;
+    case 5:
+        break;
+    default:
+        cout << "Invalid Choose" << endl;
+    }
+}
+
+// Function Switch Teacher
+void switchTeacher()
+{
+    // Check process Teacher user
+    switch (process)
+    {
+    case 1:
+        addTeacher();
+        break;
+    case 2:
+        cout << "Remove Teacher" << endl;
+        break;
+    case 3:
+        cout << "Edit Teacher" << endl;
+        break;
+    case 4:
+        cout << "Show Teacher" << endl;
+        break;
+    case 5:
+        break;
+    default:
+        cout << "Invalid Choose" << endl;
     }
 }
