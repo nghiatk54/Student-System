@@ -83,3 +83,13 @@ public:
         return -1;
     }
 };
+
+// Create class Service Validation
+class ServiceValidation
+{
+public:
+    void fullData(string type)
+    {
+        cout << "Full" << type << " !" << endl;
+    }
+};
