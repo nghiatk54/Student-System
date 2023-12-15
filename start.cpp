@@ -30,6 +30,15 @@ void switchCourse();
 // Declare Function Switch Teacher
 void switchTeacher();
 
+// Declare Function show student by id
+void showStudentById();
+
+// Declare Function show teacher by id
+void showTeacherById();
+
+// Declare Function show Course by id
+void showCourseById();
+
 int main()
 {
     int flag = 0;
@@ -197,7 +206,7 @@ void switchStudent()
         cout << "Show Student" << endl;
         break;
     case 5:
-        cout << "Show Student By Id" << endl;
+        showStudentById();
         break;
     case 6:
         break;
@@ -225,7 +234,7 @@ void switchCourse()
         cout << "Show Course" << endl;
         break;
     case 5:
-        cout << "Show Course By Id" << endl;
+        showCourseById();
         break;
     case 6:
         break;
@@ -253,11 +262,38 @@ void switchTeacher()
         cout << "Show Teacher" << endl;
         break;
     case 5:
-        cout << "Show Teacher By Id" << endl;
+        showTeacherById();
         break;
     case 6:
         break;
     default:
         cout << "Invalid Choose" << endl;
     }
+}
+
+// Function show student by id
+void showStudentById()
+{
+    cout << "Enter Student Id : ";
+    cin >> id;
+    StudentController studentController;
+    studentController.showStudentById(id);
+}
+
+// Function show course by id
+void showCourseById()
+{
+    cout << "Enter Course Id : ";
+    cin >> id;
+    CourseController courseController;
+    courseController.showCourseById(id);
+}
+
+// Function show teacher by id
+void showTeacherById()
+{
+    cout << "Enter Teacher Id : ";
+    cin >> id;
+    TeacherController teacherController;
+    teacherController.showTeacherById(id);
 }

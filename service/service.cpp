@@ -44,7 +44,7 @@ public:
         studentResult = studentRepository.getStudentById(id);
         if (studentResult.getId() == -1)
         {
-            cout << "Student With Id [" << id << "] Not Exist" << endl;
+            serviceValidation.notExist("Student", id);
         }
         return studentResult;
     }
@@ -94,7 +94,7 @@ public:
         courseResult = courseRepository.getCourseById(id);
         if (courseResult.getId() == -1)
         {
-            cout << "Course With Id [" << id << "] Not Exist" << endl;
+            serviceValidation.notExist("Course", id);
         }
         return courseResult;
     }
@@ -143,7 +143,7 @@ public:
         teacherResult = teacherRepository.getTeacherById(id);
         if (teacherResult.getId() == -1)
         {
-            cout << "Teacher With Id [" << id << "] Not Exist" << endl;
+            serviceValidation.notExist("Teacher", id);
         }
         return teacherResult;
     }

@@ -88,8 +88,15 @@ public:
 class ServiceValidation
 {
 public:
+    // Invalid full data
     void fullData(string type)
     {
         cout << "Full" << type << " !" << endl;
+    }
+
+    // Invalid data not exist
+    void notExist(string type, int id)
+    {
+        cout << type << " With Id [" << id << "] Not Exist" << endl;
     }
 };
