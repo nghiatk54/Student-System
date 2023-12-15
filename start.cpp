@@ -94,7 +94,9 @@ void showList(string value)
     cout << "3 - Edit " << value
          << "\t"
          << "4 - Show " << value << endl;
-    cout << "5 - Exit" << endl;
+    cout << "5 - Show " << value << "By ID"
+         << "\t"
+         << "6 - Exit" << endl;
 }
 
 // Function Add Student
@@ -195,6 +197,9 @@ void switchStudent()
         cout << "Show Student" << endl;
         break;
     case 5:
+        cout << "Show Student By Id" << endl;
+        break;
+    case 6:
         break;
     default:
         cout << "Invalid Choose" << endl;
@@ -220,6 +225,9 @@ void switchCourse()
         cout << "Show Course" << endl;
         break;
     case 5:
+        cout << "Show Course By Id" << endl;
+        break;
+    case 6:
         break;
     default:
         cout << "Invalid Choose" << endl;
@@ -245,6 +253,9 @@ void switchTeacher()
         cout << "Show Teacher" << endl;
         break;
     case 5:
+        cout << "Show Teacher By Id" << endl;
+        break;
+    case 6:
         break;
     default:
         cout << "Invalid Choose" << endl;
