@@ -8,6 +8,7 @@ class StudentService
 public:
     virtual int addStudent(Student student) = 0;
     virtual Student getStudentById(int id) = 0;
+    virtual int editStudent(Student student) = 0;
 };
 
 // Create class StudentServiceImpl
@@ -48,6 +49,20 @@ public:
         }
         return studentResult;
     }
+
+    // Method check valid edit student
+    void editStudent(Student student)
+    {
+        int index = studentRepository.editStudent(student);
+        if (index == -1)
+        {
+            serviceValidation.notExist("Student", student.getId());
+        }
+        else
+        {
+            cout << "Success Edit Student With ID [" << student.getId() << "]" << endl;
+        }
+    }
 };
 
 //////////////////////////////////// COURSE \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -57,6 +72,7 @@ class CourseService
 public:
     virtual int addCourse(Course course) = 0;
     virtual Course getCourseById(int id) = 0;
+    virtual int editCourse(Course Course) = 0;
 };
 
 // Create class CourseServiceImpl
@@ -98,6 +114,20 @@ public:
         }
         return courseResult;
     }
+
+    // Method check valid edit course
+    void editCourse(Course course)
+    {
+        int index = courseRepository.editCourse(course);
+        if (index == -1)
+        {
+            serviceValidation.notExist("Course", course.getId());
+        }
+        else
+        {
+            cout << "Success Edit Course With ID [" << course.getId() << "]" << endl;
+        }
+    }
 };
 
 //////////////////////////////////// TEACHER \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -107,6 +137,7 @@ class TeacherService
 public:
     virtual int addTeacher(Teacher teacher) = 0;
     virtual Teacher getTeacherById(int id) = 0;
+    virtual int editTeacher(Teacher Teacher) = 0;
 };
 
 // Create class TeacherServiceImpl
@@ -146,5 +177,19 @@ public:
             serviceValidation.notExist("Teacher", id);
         }
         return teacherResult;
+    }
+
+    // Method check valid edit teacher
+    void editTeacher(Teacher teacher)
+    {
+        int index = teacherRepository.editTeacher(teacher);
+        if (index == -1)
+        {
+            serviceValidation.notExist("Teacher", teacher.getId());
+        }
+        else
+        {
+            cout << "Success Edit Teacher With ID [" << teacher.getId() << "]" << endl;
+        }
     }
 };

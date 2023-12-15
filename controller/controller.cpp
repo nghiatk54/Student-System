@@ -25,6 +25,12 @@ public:
             cout << "\t\t" << student.getId() << "\t\t" << student.getName() << "\t\t" << student.getAge() << "\t\t" << student.getPhoneNumber() << "\t\t" << student.getGpa() << endl;
         }
     }
+
+    // Method update Student
+    void updateStudent(Student student)
+    {
+        studentService.editStudent(student);
+    }
 };
 
 //////////////////////////////////// COURSE \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -52,6 +58,12 @@ public:
             cout << "\t\t" << course.getId() << "\t\t" << course.getName() << "\t\t" << course.getHour() << endl;
         }
     }
+
+    // Method update Course
+    void updateCourse(Course course)
+    {
+        courseService.editCourse(course);
+    }
 };
 
 //////////////////////////////////// TEACHER \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -78,5 +90,11 @@ public:
             cout << "\t\tId \t\t Name \t\t Age \t\t Phone Number \t\t Salary" << endl;
             cout << "\t\t" << teacher.getId() << "\t\t" << teacher.getName() << "\t\t" << teacher.getAge() << "\t\t" << teacher.getPhoneNumber() << "\t\t" << teacher.getSalary() << endl;
         }
+    }
+
+    // Method update Teacher
+    void updateTeacher(Teacher teacher)
+    {
+        teacherService.editTeacher(teacher);
     }
 };

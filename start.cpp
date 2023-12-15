@@ -39,6 +39,16 @@ void showTeacherById();
 // Declare Function show Course by id
 void showCourseById();
 
+// Declare Function edit student
+void editStudent();
+
+// Declare Function edit course
+void editCourse();
+
+// Declare Function edit teacher
+void editTeacher();
+
+// ************************************************************************ MAIN PROGRAM ************************************************************************
 int main()
 {
     int flag = 0;
@@ -200,7 +210,7 @@ void switchStudent()
         cout << "Remove Student" << endl;
         break;
     case 3:
-        cout << "Edit Student" << endl;
+        editStudent();
         break;
     case 4:
         cout << "Show Student" << endl;
@@ -228,7 +238,7 @@ void switchCourse()
         cout << "Remove Course" << endl;
         break;
     case 3:
-        cout << "Edit Course" << endl;
+        editCourse();
         break;
     case 4:
         cout << "Show Course" << endl;
@@ -256,7 +266,7 @@ void switchTeacher()
         cout << "Remove Teacher" << endl;
         break;
     case 3:
-        cout << "Edit Teacher" << endl;
+        editTeacher();
         break;
     case 4:
         cout << "Show Teacher" << endl;
@@ -296,4 +306,80 @@ void showTeacherById()
     cin >> id;
     TeacherController teacherController;
     teacherController.showTeacherById(id);
+}
+
+// Function edit student
+void editStudent()
+{
+    cout << "Please Enter Student Data: " << endl;
+    Student student;
+    cout << "Enter Student Id: ";
+    cin >> id;
+    student.setId(id);
+    cout << "Enter Student Name: ";
+    string name;
+    cin >> name;
+    student.setName(name);
+    cout << "Enter Student Age: ";
+    int age;
+    cin >> age;
+    student.setAge(age);
+    cout << "Enter Student Phone Number: ";
+    string phoneNumber;
+    cin >> phoneNumber;
+    student.setPhoneNumber(phoneNumber);
+    cout << "Enter Student GPA: ";
+    double gpa;
+    cin >> gpa;
+    student.setGpa(gpa);
+    StudentController studentController;
+    studentController.updateStudent(student);
+}
+
+// Function edit course
+void editCourse()
+{
+    cout << "Please Enter Course Data: " << endl;
+    Course course;
+    cout << "Enter Course ID: ";
+    cin >> id;
+    course.setId(id);
+    cout << "Enter Course Name: ";
+    string name;
+    cin >> name;
+    course.setName(name);
+    cout << "Enter Course Hour: ";
+    double hour;
+    cin >> hour;
+    course.setHour(hour);
+    CourseController courseController;
+    courseController.updateCourse(course);
+}
+
+// Function edit teacher
+void editTeacher()
+{
+    cout << "Please Enter Teacher Data: " << endl;
+    Teacher teacher;
+    cout << "Enter Teacher ID: ";
+    cin >> id;
+    teacher.setId(id);
+    cout << "Enter Teacher Name: ";
+    string name;
+    cin >> name;
+    teacher.setName(name);
+    cout << "Enter Teacher Age: ";
+    int age;
+    cin >> age;
+    teacher.setAge(age);
+    cout << "Enter Teacher Phone Number: ";
+    string phoneNumber;
+    cin >> phoneNumber;
+    teacher.setPhoneNumber(phoneNumber);
+    cout << "Enter Teacher salary: ";
+    double salary;
+    cin >> salary;
+    teacher.setSalary(salary);
+    TeacherController teacherController;
+    teacherController.updateTeacher(teacher);
 }

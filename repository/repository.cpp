@@ -35,6 +35,7 @@ class StudentRepository
 public:
     virtual int addStudent(Student student) = 0;
     virtual Student getStudentById(int id) = 0;
+    virtual int editStudent(Student student) = 0;
 };
 
 // Create class StudentRepositoryImpl
@@ -43,6 +44,7 @@ class StudentRepositoryImpl : public StudentRepository
 private:
     Data data;
     Student invalidStudent;
+    int index = -1;
 
 public:
     // Method add student
@@ -73,6 +75,28 @@ public:
         invalidStudent.setId(-1);
         return invalidStudent;
     }
+
+    // Method edit student
+    int editStudent(Student student)
+    {
+        for (int i = 0; i < data.indexStudent; i++)
+        {
+            if (data.students[i].getId() == student.getId())
+            {
+                index = i;
+                break;
+            }
+        }
+        if (index = -1)
+        {
+            return -1;
+        }
+        else
+        {
+            data.students[index] = student;
+            return index;
+        }
+    }
 };
 
 //////////////////////////////////// COURSE \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -82,6 +106,7 @@ class CourseRepository
 public:
     virtual int addCourse(Course course) = 0;
     virtual Course getCourseById(int id) = 0;
+    virtual int editCourse(Course Course) = 0;
 };
 
 // Create class CourseRepositoryImpl
@@ -90,6 +115,7 @@ class CourseRepositoryImpl : public CourseRepository
 private:
     Data data;
     Course invalidCourse;
+    int index = -1;
 
 public:
     // Method add Course
@@ -120,6 +146,28 @@ public:
         invalidCourse.setId(-1);
         return invalidCourse;
     }
+
+    // Method edit course
+    int editCourse(Course course)
+    {
+        for (int i = 0; i < data.indexCourse; i++)
+        {
+            if (data.courses[i].getId() == course.getId())
+            {
+                index = i;
+                break;
+            }
+        }
+        if (index = -1)
+        {
+            return -1;
+        }
+        else
+        {
+            data.courses[index] = course;
+            return index;
+        }
+    }
 };
 
 //////////////////////////////////// TEACHER \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -129,6 +177,7 @@ class TeacherRepository
 public:
     virtual int addTeacher(Teacher teacher) = 0;
     virtual Teacher getTeacherById(int id) = 0;
+    virtual int editTeacher(Teacher Teacher) = 0;
 };
 
 // Create class TeacherRepositoryImpl
@@ -137,6 +186,7 @@ class TeacherRepositoryImpl : public TeacherRepository
 private:
     Data data;
     Teacher invalidTeacher;
+    int index = -1;
 
 public:
     // Method add Teacher
@@ -166,5 +216,27 @@ public:
         }
         invalidTeacher.setId(-1);
         return invalidTeacher;
+    }
+
+    // Method edit teacher
+    int editTeacher(Teacher teacher)
+    {
+        for (int i = 0; i < data.indexTeacher; i++)
+        {
+            if (data.teachers[i].getId() == teacher.getId())
+            {
+                index = i;
+                break;
+            }
+        }
+        if (index = -1)
+        {
+            return -1;
+        }
+        else
+        {
+            data.teachers[index] = teacher;
+            return index;
+        }
     }
 };

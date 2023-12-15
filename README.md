@@ -13,5 +13,7 @@ OOP C++ Project
 -   Nếu đúng thì chuyển đến repository.
 -   Nếu sai thì in ra điều kiện sai và chuyển về controller
 
-5. Luồng dữ liệu chạy:
+5. File controller.cpp nhận yêu cầu từ người dùng.
+
+6. Luồng dữ liệu chạy:
    user input --> models --> controller --> service --> repository
